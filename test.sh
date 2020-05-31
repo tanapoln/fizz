@@ -30,6 +30,7 @@ fi
 function test {
   echo "!!! Testing $1"
   export SODA_DIALECT=$1
+  export MYSQL_PORT=3308
   soda drop -e $SODA_DIALECT
   soda create -e $SODA_DIALECT
   soda migrate -e $SODA_DIALECT -p ./testdata/migrations

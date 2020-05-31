@@ -85,6 +85,24 @@ PRIMARY KEY(` + "`id`" + `),
 	r.Equal(ddl, res)
 }
 
+func (p *MySQLSuite) Test_MySQL_CreateTableBigint() {
+	r := p.Require()
+	ddl := `CREATE TABLE ` + "`users`" + ` (
+` + "`id`" + ` BIGINT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY(` + "`id`" + `),
+` + "`created_at`" + ` DATETIME NOT NULL,
+` + "`updated_at`" + ` DATETIME NOT NULL
+) ENGINE=InnoDB;`
+
+	res, err := fizz.AString(`
+	create_table("users") {
+		t.Column("id", "BIGINT", {"primary": true})
+	}
+	`, myt)
+	r.NoError(err)
+	r.Equal(ddl, res)
+}
+
 func (p *MySQLSuite) Test_MySQL_CreateTable_UUID() {
 	r := p.Require()
 	ddl := `CREATE TABLE ` + "`users`" + ` (
