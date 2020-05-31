@@ -208,7 +208,7 @@ func (t *Table) Index(columns interface{}, options Options) error {
 
 // Timestamp is a shortcut to add a timestamp column with default options.
 func (t *Table) Timestamp(name string) error {
-	return t.Column(name, "timestamp", Options{})
+	return t.Column(name, "timestamp", Options{"size": 3})
 }
 
 // Timestamps adds created_at and updated_at columns to the Table definition.

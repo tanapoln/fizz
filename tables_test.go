@@ -101,7 +101,7 @@ func Test_Table_StringerAutoDisableTimestamps(t *testing.T) {
 		`create_table("users") {
 	t.Column("name", "string")
 	t.Column("created_at", "int")
-	t.Column("updated_at", "timestamp", {size: 3})
+	t.Column("updated_at", "timestamp")
 }`
 
 	table = fizz.NewTable("users", map[string]interface{}{

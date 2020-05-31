@@ -94,8 +94,8 @@ func (p *MySQLSuite) Test_MySQL_CreateTableBigint() {
 	ddl := `CREATE TABLE ` + "`users`" + ` (
 ` + "`id`" + ` BIGINT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY(` + "`id`" + `),
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL
 ) ENGINE=InnoDB;`
 
 	res, err := fizz.AString(`
@@ -118,8 +118,8 @@ func (p *MySQLSuite) Test_MySQL_CreateTable_UUID() {
 ` + "`company_id`" + ` char(36) NOT NULL DEFAULT 'test',
 ` + "`uuid`" + ` char(36) NOT NULL,
 PRIMARY KEY(` + "`uuid`" + `),
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL
 ) ENGINE=InnoDB;`
 
 	res, err := fizz.AString(`
@@ -143,8 +143,8 @@ func (p *MySQLSuite) Test_MySQL_CreateTables_WithForeignKeys() {
 ` + "`id`" + ` INTEGER NOT NULL AUTO_INCREMENT,
 PRIMARY KEY(` + "`id`" + `),
 ` + "`email`" + ` VARCHAR (20) NOT NULL,
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL
 ) ENGINE=InnoDB;
 CREATE TABLE ` + "`profiles`" + ` (
 ` + "`id`" + ` INTEGER NOT NULL AUTO_INCREMENT,
@@ -152,8 +152,8 @@ PRIMARY KEY(` + "`id`" + `),
 ` + "`user_id`" + ` INTEGER NOT NULL,
 ` + "`first_name`" + ` VARCHAR (255) NOT NULL,
 ` + "`last_name`" + ` VARCHAR (255) NOT NULL,
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL,
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL,
 FOREIGN KEY (` + "`user_id`" + `) REFERENCES ` + "`users`" + ` (` + "`id`" + `)
 ) ENGINE=InnoDB;`
 
@@ -179,8 +179,8 @@ func (p *MySQLSuite) Test_MySQL_CreateTables_WithCompositePrimaryKey() {
 	ddl := `CREATE TABLE ` + "`user_profiles`" + ` (
 ` + "`user_id`" + ` INTEGER NOT NULL,
 ` + "`profile_id`" + ` INTEGER NOT NULL,
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL,
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL,
 PRIMARY KEY(` + "`user_id`" + `, ` + "`profile_id`" + `)
 ) ENGINE=InnoDB;`
 
