@@ -57,8 +57,8 @@ PRIMARY KEY(` + "`id`" + `),
 ` + "`double`" + ` DOUBLE(8,2) NOT NULL,
 ` + "`integer`" + ` INTEGER NOT NULL,
 ` + "`bytes`" + ` BLOB NOT NULL,
-` + "`created_at`" + ` DATETIME NOT NULL,
-` + "`updated_at`" + ` DATETIME NOT NULL
+` + "`created_at`" + ` DATETIME(3) NOT NULL,
+` + "`updated_at`" + ` DATETIME(3) NOT NULL
 ) ENGINE=InnoDB;`
 
 	res, err := fizz.AString(`
